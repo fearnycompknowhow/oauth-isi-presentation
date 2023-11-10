@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Implicit Login</title>
+
+	<style>
+		.content {
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			width: 100vw;
+		}
+
+		.login-modal {
+			padding: 2rem;
+			border: solid black 1px;
+			border-radius: 1rem;
+		}
+
+		.login-form {
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+</head>
+<body>
+	<header><h1>Google</h1></header>
+	<div class="content">
+		<div class="login-modal">
+			<div class="login-form" method="POST" action="/login">
+				<label for="username">Username:</label><br>
+				<input type="text" id="username"><br>
+				<label for="password">Password:</label><br>
+				<input type="password" id="password"><br>
+				<button id="submit-button">Login</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.getElementById('submit-button').addEventListener('click', async () => {
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			const urlParams = new URLSearchParams(window.location.search);
+			const response = await fetch('/implicit-login', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					username,
+					password,
+					client_id: urlParams.get('client_id'),
+					audience: urlParams.get('audience'),
+					redirect_uri: urlParams.get('redirect_uri')
+				})
+			});
+
+			if (response.status !== 200) {
+				const body = await (await response.blob()).text();
+
+				alert(body);
+			}
+
+			const { redirect_uri } = JSON.parse(await (await response.blob()).text());
+
+			window.location.href = redirect_uri;
+		});
+	</script>
+</body>
+</html>

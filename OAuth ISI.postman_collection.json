@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "e4d64419-6331-426e-9edd-c2e70fa5bfc1",
+		"name": "OAuth ISI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13189421"
+	},
+	"item": [
+		{
+			"name": "Facebook",
+			"item": [
+				{
+					"name": "Insecure Google operation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"fearny\",\n    \"password\": \"my-super-secret-password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/insecure-send-happy-birthday-emails",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"insecure-send-happy-birthday-emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Secure Google operation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3N1ZXIiOiJodHRwOi8vbG9jYWxob3N0OjQwMDAiLCJzdWJqZWN0IjoibXVsdGktYXBwLWNsaWVudC1pZCIsImF1ZGllbmNlIjoiaHR0cHM6Ly9kcml2ZXRyYWsuY29tLyIsImlzc3VlZEF0IjoxNjk4Mzc2NzgzLCJleHBpcmVzIjoxNjk4NDYzMTgzLCJwZXJtaXNzaW9ucyI6InJlYWQtc3R1ZGVudHMiLCJncmFudFR5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJpYXQiOjE2OTgzNzY3ODN9.YH1HDA418aES5g8uSTXmcwaP0pLNj0wH8eBnkMvbINhHeSuokNqhsAKz0SzP6aJqze6LihVxpcrwcopWKfjQIQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/secure-send-happy-birthday-emails",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"secure-send-happy-birthday-emails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DriveTrak",
+			"item": [
+				{
+					"name": "Get Students",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3N1ZXIiOiJodHRwOi8vbG9jYWxob3N0OjMwMTAiLCJzdWJqZWN0IjoiZHJpdmV0cmFrIiwiYXVkaWVuY2UiOiJodHRwczovL2FwaS5kcml2ZXRyYWsuaW8vIiwiaXNzdWVkQXQiOjE2OTk2MzEzMjAsImV4cGlyZXMiOjE2OTk3MTc3MjAsInBlcm1pc3Npb25zIjoicmVhZC1zdHVkZW50cyIsImdyYW50VHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsImlhdCI6MTY5OTYzMTMyMH0.2TNjM_CLCNEc1O8bf_zMFu2xhrdBsVGtEFrUizZqqINy0ODSuhFUEnJ9qKzgIrVgVppiy3R54sXMXih-GREdww\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/get-students",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"get-students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Yahoo",
+			"item": []
+		},
+		{
+			"name": "Google",
+			"item": [
+				{
+					"name": "Well Known JKS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3010/.well-known/jwks.json",
+							"host": [
+								"localhost"
+							],
+							"port": "3010",
+							"path": [
+								".well-known",
+								"jwks.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "M2M Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"privileged-client-id\",\n    \"client_secret\": \"oohhaa\",\n    \"audience\": \"https://google.com/\",\n    \"grant_type\": \"client_credentials\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3010/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3010",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Code Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grant_type\": \"insecure_authorization_code\",\n    \"code\": \"f0162c1ff89eebdb53f6d7fc507d84b7906318ff459c0d164d40223e212a786454bfd55cd4c84640edf8cef9e8263eb0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3010/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3010",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Code (with PKCE) Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grant_type\": \"authorization_code\",\n    \"code\": \"0b6cd24df02217112e104d154508d887c98ab164421e5489a88698f4053bbd9dcb19f0f3653c9820e3c822f9c8a3aad0\",\n    \"code_verifier\": \"a6d78ea464df3668e630096fe3baa36e0688c0872b7be38ec1dd2e81\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3010/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3010",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Secure Delete Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3N1ZXIiOiJodHRwOi8vbG9jYWxob3N0OjQwMDAiLCJzdWJqZWN0IjoiYmFzaWMtY2xpZW50LWlkIiwiYXVkaWVuY2UiOiJodHRwczovL2dvb2dsZS5jb20vIiwiaXNzdWVkQXQiOjE2OTgzNzUzNTAsImV4cGlyZXMiOjE2OTg0NjE3NTAsInNjb3BlIjoicmVhZC1lbWFpbC1hZGRyZXNzIHJlYWQtZW1haWxzIiwiZ3JhbnRUeXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIiwiaWF0IjoxNjk4Mzc1MzUwfQ.1sSHH2ZHo-igUIGm8VxpVEXRGYvfEfcp1XMTQMWxiqM8LeEtPk8cE9olJnKdeRC-sMms7MXmaEUQ5BCfqLPXww\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3010/secure-delete-account",
+							"host": [
+								"localhost"
+							],
+							"port": "3010",
+							"path": [
+								"secure-delete-account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SPA",
+			"item": [
+				{
+					"name": "Get Content",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3040/",
+							"host": [
+								"localhost"
+							],
+							"port": "3040",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
